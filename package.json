@@ -1,0 +1,16 @@
+{
+    "name": "com.bigbearstudios.bbunitytestsupport",
+    "version": "0.0.1",
+    "displayName": "BBUnity Test Support",
+    "description": "",
+    "unity": "2018.3",
+    "author": {
+      "name": "Big Bear Studios",
+      "email": "development@bigbearstudios.co.uk",
+      "url": "https://bigbearstudios.co.uk/opensource"
+    },
+    "dependencies": {
+       
+    }
+  }
+  
