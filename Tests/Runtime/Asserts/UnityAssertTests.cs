@@ -1,18 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using BBUnity.TestSupport;
+using NUnit.Framework;
+using System;
 using UnityEngine;
 
-public class UnityAssertTests : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class UnityAssertTests {
+
+    [Test]
+    public void ShouldPassForSimilarVector2() {
+        UnityAssert.AreEqual(Vector2.zero, Vector2.zero);
+        UnityAssert.AreEqual(Vector2.one, Vector2.one);
+        UnityAssert.AreEqual(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [Test]
+    public void ShouldPassForSimilarVector3() {
+        UnityAssert.AreEqual(Vector3.zero, Vector3.zero);
+        UnityAssert.AreEqual(Vector3.one, Vector3.one);
+        UnityAssert.AreEqual(new Vector3(5.0f, 5.0f, 5.0f), new Vector3(5.0f, 5.0f, 5.0f));
     }
+
+    [Test]
+    public void ShouldThrowForNonSimilarVector2() {
+        Assert.Throws(typeof(AssertionException), () => {
+            UnityAssert.AreEqual(Vector2.zero, Vector2.one);
+        });
+
+        Assert.Throws(typeof(AssertionException), () => { 
+            UnityAssert.AreEqual(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 1.0f));
+        });
+    }
+
+    [Test]
+    public void ShouldThrowForNonSimilarVector3() {
+        Assert.Throws(typeof(AssertionException), () => {
+            UnityAssert.AreEqual(Vector3.zero, Vector3.one);
+        });
+
+        Assert.Throws(typeof(AssertionException), () => { 
+            UnityAssert.AreEqual(new Vector3(5.0f, 5.0f, 5.0f), new Vector3(5.0f, 1.0f, 5.0f));
+        });
+    }
+
 }
