@@ -12,14 +12,9 @@ public class DictionaryExtensionsTests {
     private int PlusOne(int value) {
         return value + 1;
     }
-         
-    [Test]
-    public void ShouldAllowCustomActionToBeUsedForIteration() {
-        
-    }
 
     [Test]
-    public void ShouldAllowTestingOfIntReturnWithStringInput() {
+    public void AreEqual_ShouldPass_IfStringKeysAndValuesAreEqual() {
         new Dictionary<string, int> {
             { "1", 1 },
             { "10", 10 }
@@ -27,7 +22,7 @@ public class DictionaryExtensionsTests {
     }
 
     [Test]
-    public void ShouldThrowOnNonMatchingEqualsOfIntReturnWithStringInput() {
+    public void AreEqual_ShouldThrowAssertionException_IfStringKeysAndValuesAreNotEqual() {
         Assert.Throws(typeof(AssertionException), () => {
             new Dictionary<string, int> {
                 { "10", 1 }
@@ -36,14 +31,14 @@ public class DictionaryExtensionsTests {
     }
 
     [Test]
-    public void ShouldAllowTestingOfIntReturnWithIntInput() {
+    public void AreEqual_ShouldPass_IfIntKeysAndValuesAreEqual() {
         new Dictionary<int, int> {
             { 2, 1 }
         }.AreEqual(PlusOne);
     }
 
     [Test]
-    public void ShouldThrowOnNonMatchingEqualsOfIntReturnWithIntInput() {
+    public void AreEqual_ShouldThrowAssertionException_IfIntKeysAndValuesAreNotEqual() {
         Assert.Throws(typeof(AssertionException), () => {
             new Dictionary<int, int> {
                 { 1, 1 }
