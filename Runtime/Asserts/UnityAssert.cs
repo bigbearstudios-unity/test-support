@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using NUnit.Framework;
-using System;
 
 namespace BBUnity.TestSupport {
     public static class UnityAssert {

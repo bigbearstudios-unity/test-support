@@ -1,8 +1,8 @@
 {
     "name": "com.bigbearstudios.bbunity-test-support",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "displayName": "BBUnity Test Support",
-    "description": "",
+    "description": "Test support for the Big Bear Unity project",
     "unity": "2018.3",
     "repository": {
       "type": "git",
