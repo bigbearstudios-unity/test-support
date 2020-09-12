@@ -1,22 +1,23 @@
 {
-    "name": "com.bigbearstudios.bbunity-test-support",
-    "version": "0.0.3",
-    "displayName": "BBUnity Test Support",
-    "description": "Test support for the Big Bear Unity project - Requires Unity / C# to use",
-    "unity": "2018.3",
-    "repository": {
-      "type": "git",
-      "url": "git+https://gitlab.com/big-bear-studios-open-source/bbunity-test-support.git"
-    },
-    "bugs": "https://gitlab.com/big-bear-studios-open-source/bbunity-test-support/-/issues",
-    "author": {
-      "name": "Big Bear Studios",
-      "email": "development@bigbearstudios.co.uk",
-      "url": "https://bigbearstudios.co.uk/opensource"
-    },
-    "contributors": [{
+  "name": "com.bigbearstudios.bbunity-test-support",
+  "version": "0.0.3",
+  "displayName": "BBUnity Test Support",
+  "description": "Test support for the Big Bear Unity project - Requires Unity / C# to use",
+  "unity": "2018.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/big-bear-studios-open-source/bbunitytestsupport.git"
+  },
+  "bugs": "https://gitlab.com/big-bear-studios-open-source/bbunitytestsupport/-/issues",
+  "author": {
+    "name": "Big Bear Studios",
+    "email": "development@bigbearstudios.co.uk",
+    "url": "https://bigbearstudios.co.uk/opensource"
+  },
+  "contributors": [
+    {
       "name": "Stuart Farnaby",
       "email": "stuart@bigbearstudios.co.uk"
-    }]  
-  }
-  
+    }
+  ]
+}
