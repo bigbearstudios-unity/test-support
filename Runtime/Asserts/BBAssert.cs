@@ -1,9 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+
 using UnityEngine;
 using NUnit.Framework;
 
 namespace BBUnity.TestSupport {
-    public static class UnityAssert {
+    public static class UAssert {
+
+        public static void ChangeInSceneObjects(int assertedChange, Action func) {
+            int previousObjectCount = Utilities.NumberOfObjectsInScene;
+            func();
+            int newObjectCount = Utilities.NumberOfObjectsInScene;
+            int change = newObjectCount - previousObjectCount;
+
+            Assert.AreEqual(assertedChange, change);
+        }
+
+        /*
+         * Vector AreEqual
+         */
+
         public static void AreEqual(Vector2 v, Vector2 v2, float tolerance = 0.001f) {
             float distance = Vector2.Distance(v, v2);
             Assert.That(distance, Is.LessThanOrEqualTo(tolerance), AssertMessage(v, v2, distance, tolerance));
@@ -16,7 +32,7 @@ namespace BBUnity.TestSupport {
 
         public static void AreEqual(float f, float f2, float tolerance = 0.001f) {
             float absolute = Math.Abs(f - f2);
-            Assert.That(absolute, Is.LessThanOrEqualTo(tolerance), AssertMessage(f, f2, absolute, tolerance)); 
+            Assert.That(absolute, Is.LessThanOrEqualTo(tolerance), AssertMessage(f, f2, absolute, tolerance));
         }
 
         public static void AreEqual(Quaternion q, Quaternion q2, float tolerance = 0.001f) {
@@ -30,6 +46,47 @@ namespace BBUnity.TestSupport {
             Assert.That(yDiff, Is.LessThanOrEqualTo(tolerance), AssertMessage(q, q2, yDiff, tolerance)); 
             Assert.That(zDiff, Is.LessThanOrEqualTo(tolerance), AssertMessage(q, q2, zDiff, tolerance)); 
         }
+
+        /*
+         * Array Asserts
+         */
+
+        public static void IsTrue<T>(T[] array, Func<T, bool> action) {
+            foreach(T value in array) {
+                Assert.IsTrue(action(value));
+            }
+        }
+
+        public static void IsFalse<T>(T[] array, Func<T, bool> action) {
+            foreach(T value in array) {
+                Assert.IsFalse(action(value));
+            }
+        }
+
+        public static void IsNotNull<T>(T[] array, Func<T, object> action) {
+            foreach(T value in array) {
+                Assert.IsNotNull(action(value));
+            }
+        }
+
+        public static void IsNull<T>(T[] array, Func<T, object> action) {
+            foreach(T value in array) {
+                Assert.IsNull(action(value));
+            }
+        }
+
+        /*
+        * Dictionary Asserts
+        */
+
+        public static void AreEqual<TKey, TValue>(Dictionary<TKey, TValue> dictionary, Func<TKey, TValue> action) {
+            foreach (KeyValuePair<TKey, TValue> entry in dictionary) {
+                Assert.AreEqual(entry.Value, action(entry.Key));
+            }
+        }
+
+
+
 
         private static string AssertMessage(Vector3 v, Vector3 v2, float distance, float tolerance) {
             return String.Format("Expected: Vector3({0}, {1}, {2})\nBut was:  Vector3({3}, {4}, {5})\nDistance: {6} is greated than allowed delta {7}",
