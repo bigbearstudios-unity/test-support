@@ -3,10 +3,38 @@ using UnityEngine;
 
 using BBUnity.TestSupport;
 
+using System;
 using System.Collections.Generic;
 
 namespace Asserts {
     public class UnityAssertTests {
+
+        [Test]
+        public void IsCalled_ShouldPass_WhenCalledIsTheSame() {
+            BBAssert.IsCalled(1, (Action called) => {
+                called();
+            });
+        }
+
+        [Test]
+        public void IsCalled_ShouldPass_WhenCalledMultipleTimes() {
+            BBAssert.IsCalled(10, (Action called) => {
+                for(int i = 0; i < 10; ++i) {
+                    called();
+                }
+            });
+        }
+
+        [Test]
+        public void IsCalled_ShouldThrowAssertionException_WhenCalledDoNotMatch() {
+            Assert.Throws(typeof(AssertionException), () => {
+                BBAssert.IsCalled(100, (Action called) => {
+                    for(int i = 0; i < 10; ++i) {
+                        called();
+                    }
+                });
+            });
+        }
 
         [Test]
         public void ChangeInSceneObjects_ShouldPass_WhenChangeIsTheSame() {

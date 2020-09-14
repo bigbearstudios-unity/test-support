@@ -85,6 +85,16 @@ namespace BBUnity.TestSupport {
         }
 
 
+        public static void IsCalled(int called, Action<Action> action) {
+            int callCount = 0;
+            Action toCall = () => {
+                callCount++;
+            };
+
+
+            action(toCall);
+            Assert.AreEqual(called, callCount);
+        }
 
 
         private static string AssertMessage(Vector3 v, Vector3 v2, float distance, float tolerance) {
