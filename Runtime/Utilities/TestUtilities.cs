@@ -33,6 +33,12 @@ namespace BBUnity.TestSupport {
             GameObject.DestroyImmediate(obj);
         }
 
+        public static void CreateThenDestroyGameObject(System.Type[] components, Action<GameObject> func) {
+            GameObject obj = new GameObject("Test Object", components);
+            func(obj);
+            GameObject.DestroyImmediate(obj);
+        }
+
         public static void CreateThenDestroyGameObject(string name, System.Type[] components, Action<GameObject> func) {
             GameObject obj = new GameObject(name, components);
             func(obj);
