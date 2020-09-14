@@ -5,12 +5,11 @@ using UnityEngine;
 using NUnit.Framework;
 
 namespace BBUnity.TestSupport {
-    public static class UAssert {
-
+    public static class BBAssert {
         public static void ChangeInSceneObjects(int assertedChange, Action func) {
-            int previousObjectCount = Utilities.NumberOfObjectsInScene;
+            int previousObjectCount = TestUtilities.NumberOfObjectsInScene;
             func();
-            int newObjectCount = Utilities.NumberOfObjectsInScene;
+            int newObjectCount = TestUtilities.NumberOfObjectsInScene;
             int change = newObjectCount - previousObjectCount;
 
             Assert.AreEqual(assertedChange, change);

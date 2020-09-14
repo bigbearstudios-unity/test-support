@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace BBUnity.TestSupport {
-    public class Utilities {
+    public class TestUtilities {
 
         public static int NumberOfObjectsInScene {
             get {

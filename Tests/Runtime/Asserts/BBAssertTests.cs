@@ -10,16 +10,16 @@ namespace Asserts {
 
         [Test]
         public void ChangeInSceneObjects_ShouldPass_WhenChangeIsTheSame() {
-            UAssert.ChangeInSceneObjects(0, () => {
+            BBAssert.ChangeInSceneObjects(0, () => {
 
             });
 
-            UAssert.ChangeInSceneObjects(1, () => {
+            BBAssert.ChangeInSceneObjects(1, () => {
                 new GameObject();
             });
 
             GameObject obj = new GameObject();
-            UAssert.ChangeInSceneObjects(-1, () => {
+            BBAssert.ChangeInSceneObjects(-1, () => {
                 GameObject.DestroyImmediate(obj);
             });
         }
@@ -27,13 +27,13 @@ namespace Asserts {
         [Test]
         public void ChangeInSceneObjects_ShouldThrowAssertionException_WhenChangeDoNotMatch() {
             Assert.Throws(typeof(AssertionException), () => {
-                UAssert.ChangeInSceneObjects(1, () => {
+                BBAssert.ChangeInSceneObjects(1, () => {
 
                 });
             });
 
             Assert.Throws(typeof(AssertionException), () => {
-                UAssert.ChangeInSceneObjects(-1, () => {
+                BBAssert.ChangeInSceneObjects(-1, () => {
 
                 });
             });
@@ -41,55 +41,55 @@ namespace Asserts {
 
         [Test]
         public void AreEqual_ShouldPass_IfVector2Match() {
-            UAssert.AreEqual(Vector2.zero, Vector2.zero);
-            UAssert.AreEqual(Vector2.one, Vector2.one);
-            UAssert.AreEqual(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
+            BBAssert.AreEqual(Vector2.zero, Vector2.zero);
+            BBAssert.AreEqual(Vector2.one, Vector2.one);
+            BBAssert.AreEqual(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
         }
 
         [Test]
         public void AreEqual_ShouldPass_IfVector3Match() {
-            UAssert.AreEqual(Vector3.zero, Vector3.zero);
-            UAssert.AreEqual(Vector3.one, Vector3.one);
-            UAssert.AreEqual(new Vector3(5.0f, 5.0f, 5.0f), new Vector3(5.0f, 5.0f, 5.0f));
+            BBAssert.AreEqual(Vector3.zero, Vector3.zero);
+            BBAssert.AreEqual(Vector3.one, Vector3.one);
+            BBAssert.AreEqual(new Vector3(5.0f, 5.0f, 5.0f), new Vector3(5.0f, 5.0f, 5.0f));
         }
 
         [Test]
         public void AreEqual_ShouldPass_IfQuaternionMatch() {
-            UAssert.AreEqual(Quaternion.identity, Quaternion.identity);
-            UAssert.AreEqual(new Quaternion(1.0f, 1.0f, 1.0f, 1.0f), new Quaternion(1.0f, 1.0f, 1.0f, 1.0f));
-            UAssert.AreEqual(new Quaternion(1.0f, 6.0f, 1.0f, 1.0f), new Quaternion(1.0f, 6.0f, 1.0f, 1.0f));
+            BBAssert.AreEqual(Quaternion.identity, Quaternion.identity);
+            BBAssert.AreEqual(new Quaternion(1.0f, 1.0f, 1.0f, 1.0f), new Quaternion(1.0f, 1.0f, 1.0f, 1.0f));
+            BBAssert.AreEqual(new Quaternion(1.0f, 6.0f, 1.0f, 1.0f), new Quaternion(1.0f, 6.0f, 1.0f, 1.0f));
         }
 
         [Test]
         public void AreEqual_ShouldThrowAssertionException_IfVector2DoNotMatch() {
             Assert.Throws(typeof(AssertionException), () => {
-                UAssert.AreEqual(Vector2.zero, Vector2.one);
+                BBAssert.AreEqual(Vector2.zero, Vector2.one);
             });
 
             Assert.Throws(typeof(AssertionException), () => { 
-                UAssert.AreEqual(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 1.0f));
+                BBAssert.AreEqual(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 1.0f));
             });
         }
 
         [Test]
         public void AreEqual_ShouldThrowAssertionException_IfVector3DoNotMatch() {
             Assert.Throws(typeof(AssertionException), () => {
-                UAssert.AreEqual(Vector3.zero, Vector3.one);
+                BBAssert.AreEqual(Vector3.zero, Vector3.one);
             });
 
             Assert.Throws(typeof(AssertionException), () => { 
-                UAssert.AreEqual(new Vector3(5.0f, 5.0f, 5.0f), new Vector3(5.0f, 1.0f, 5.0f));
+                BBAssert.AreEqual(new Vector3(5.0f, 5.0f, 5.0f), new Vector3(5.0f, 1.0f, 5.0f));
             });
         }
 
         [Test]
         public void AreEqual_ShouldThrowAssertionException_IfQuaternionDoNotMatch() {
             Assert.Throws(typeof(AssertionException), () => {
-                UAssert.AreEqual(Quaternion.identity, new Quaternion(0.0f, 1.0f, 0.0f, 1.0f));
+                BBAssert.AreEqual(Quaternion.identity, new Quaternion(0.0f, 1.0f, 0.0f, 1.0f));
             });
 
             Assert.Throws(typeof(AssertionException), () => { 
-                UAssert.AreEqual(Quaternion.identity, new Quaternion(1.0f, 6.0f, 1.0f, 6.0f));
+                BBAssert.AreEqual(Quaternion.identity, new Quaternion(1.0f, 6.0f, 1.0f, 6.0f));
             });
         }
 
@@ -107,7 +107,7 @@ namespace Asserts {
 
         [Test]
         public void IsTrue_ShouldPass_IfAllItemsReturnTrue() {
-            UAssert.IsTrue(new int[] {
+            BBAssert.IsTrue(new int[] {
                 1, 2
             }, ReturnTrue);
         }
@@ -115,7 +115,7 @@ namespace Asserts {
         [Test]
         public void IsTrue_ShouldThrowAssertionException_IfAllItemsReturnFalse() {
             Assert.Throws(typeof(AssertionException), () => {
-                UAssert.IsTrue(new int[] {
+                BBAssert.IsTrue(new int[] {
                     1, 2
                 }, ReturnFalse);
             });
@@ -123,7 +123,7 @@ namespace Asserts {
 
         [Test]
         public void IsFalse_ShouldPass_IfAllItemsReturnFalse() {
-            UAssert.IsFalse(new int[] {
+            BBAssert.IsFalse(new int[] {
                 1, 2
             }, ReturnFalse);
         }
@@ -131,7 +131,7 @@ namespace Asserts {
         [Test]
         public void IsFalse_ShouldThrowAssertionException_IfAllItemsReturnTrue() {
             Assert.Throws(typeof(AssertionException), () => {
-                UAssert.IsFalse(new int[] {
+                BBAssert.IsFalse(new int[] {
                     1, 2
                 }, ReturnTrue);
             });
@@ -151,7 +151,7 @@ namespace Asserts {
 
         [Test]
         public void AreEqual_ShouldPass_IfStringKeysAndValuesAreEqual() {
-            UAssert.AreEqual(new Dictionary<int, string> {
+            BBAssert.AreEqual(new Dictionary<int, string> {
                 { 1, "1" },
                 { 10, "10" }
             }, IntToString);
@@ -160,7 +160,7 @@ namespace Asserts {
         [Test]
         public void AreEqual_ShouldThrowAssertionException_IfStringKeysAndValuesAreNotEqual() {
             Assert.Throws(typeof(AssertionException), () => {
-                UAssert.AreEqual(new Dictionary<int, string> {
+                BBAssert.AreEqual(new Dictionary<int, string> {
                     { 1, "10" }
                 }, IntToString);
             });
@@ -168,7 +168,7 @@ namespace Asserts {
 
         [Test]
         public void AreEqual_ShouldPass_IfIntKeysAndValuesAreEqual() {
-            UAssert.AreEqual(new Dictionary<int, int> {
+            BBAssert.AreEqual(new Dictionary<int, int> {
                 { 1, 2 }
             }, PlusOne);
         }
@@ -176,7 +176,7 @@ namespace Asserts {
         [Test]
         public void AreEqual_ShouldThrowAssertionException_IfIntKeysAndValuesAreNotEqual() {
             Assert.Throws(typeof(AssertionException), () => {
-                 UAssert.AreEqual(new Dictionary<int, int> {
+                 BBAssert.AreEqual(new Dictionary<int, int> {
                     { 1, 1 }
                 }, PlusOne);
             });
