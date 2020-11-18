@@ -5,7 +5,7 @@ using UnityEngine;
 using NUnit.Framework;
 
 namespace BBUnity.TestSupport {
-    public static class BBAssert {
+    public static class UnityAssert {
         public static void ChangeInSceneObjects(int assertedChange, Action func) {
             int previousObjectCount = TestUtilities.NumberOfObjectsInScene;
             func();

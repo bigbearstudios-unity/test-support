@@ -10,14 +10,14 @@ public class UnityAssertTests {
 
     [Test]
     public void IsCalled_ShouldPass_WhenCalledIsTheSame() {
-        BBAssert.IsCalled(1, (Action called) => {
+        UnityAssert.IsCalled(1, (Action called) => {
             called();
         });
     }
 
     [Test]
     public void IsCalled_ShouldPass_WhenCalledMultipleTimes() {
-        BBAssert.IsCalled(10, (Action called) => {
+        UnityAssert.IsCalled(10, (Action called) => {
             for(int i = 0; i < 10; ++i) {
                 called();
             }
@@ -27,7 +27,7 @@ public class UnityAssertTests {
     [Test]
     public void IsCalled_ShouldThrowAssertionException_WhenCalledDoNotMatch() {
         Assert.Throws(typeof(AssertionException), () => {
-            BBAssert.IsCalled(100, (Action called) => {
+            UnityAssert.IsCalled(100, (Action called) => {
                 for(int i = 0; i < 10; ++i) {
                     called();
                 }
@@ -37,16 +37,16 @@ public class UnityAssertTests {
 
     [Test]
     public void ChangeInSceneObjects_ShouldPass_WhenChangeIsTheSame() {
-        BBAssert.ChangeInSceneObjects(0, () => {
+        UnityAssert.ChangeInSceneObjects(0, () => {
 
         });
 
-        BBAssert.ChangeInSceneObjects(1, () => {
+        UnityAssert.ChangeInSceneObjects(1, () => {
             new GameObject();
         });
 
         GameObject obj = new GameObject();
-        BBAssert.ChangeInSceneObjects(-1, () => {
+        UnityAssert.ChangeInSceneObjects(-1, () => {
             GameObject.DestroyImmediate(obj);
         });
     }
@@ -54,13 +54,13 @@ public class UnityAssertTests {
     [Test]
     public void ChangeInSceneObjects_ShouldThrowAssertionException_WhenChangeDoNotMatch() {
         Assert.Throws(typeof(AssertionException), () => {
-            BBAssert.ChangeInSceneObjects(1, () => {
+            UnityAssert.ChangeInSceneObjects(1, () => {
 
             });
         });
 
         Assert.Throws(typeof(AssertionException), () => {
-            BBAssert.ChangeInSceneObjects(-1, () => {
+            UnityAssert.ChangeInSceneObjects(-1, () => {
 
             });
         });
@@ -68,55 +68,55 @@ public class UnityAssertTests {
 
     [Test]
     public void AreEqual_ShouldPass_IfVector2Match() {
-        BBAssert.AreEqual(Vector2.zero, Vector2.zero);
-        BBAssert.AreEqual(Vector2.one, Vector2.one);
-        BBAssert.AreEqual(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
+        UnityAssert.AreEqual(Vector2.zero, Vector2.zero);
+        UnityAssert.AreEqual(Vector2.one, Vector2.one);
+        UnityAssert.AreEqual(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 5.0f));
     }
 
     [Test]
     public void AreEqual_ShouldPass_IfVector3Match() {
-        BBAssert.AreEqual(Vector3.zero, Vector3.zero);
-        BBAssert.AreEqual(Vector3.one, Vector3.one);
-        BBAssert.AreEqual(new Vector3(5.0f, 5.0f, 5.0f), new Vector3(5.0f, 5.0f, 5.0f));
+        UnityAssert.AreEqual(Vector3.zero, Vector3.zero);
+        UnityAssert.AreEqual(Vector3.one, Vector3.one);
+        UnityAssert.AreEqual(new Vector3(5.0f, 5.0f, 5.0f), new Vector3(5.0f, 5.0f, 5.0f));
     }
 
     [Test]
     public void AreEqual_ShouldPass_IfQuaternionMatch() {
-        BBAssert.AreEqual(Quaternion.identity, Quaternion.identity);
-        BBAssert.AreEqual(new Quaternion(1.0f, 1.0f, 1.0f, 1.0f), new Quaternion(1.0f, 1.0f, 1.0f, 1.0f));
-        BBAssert.AreEqual(new Quaternion(1.0f, 6.0f, 1.0f, 1.0f), new Quaternion(1.0f, 6.0f, 1.0f, 1.0f));
+        UnityAssert.AreEqual(Quaternion.identity, Quaternion.identity);
+        UnityAssert.AreEqual(new Quaternion(1.0f, 1.0f, 1.0f, 1.0f), new Quaternion(1.0f, 1.0f, 1.0f, 1.0f));
+        UnityAssert.AreEqual(new Quaternion(1.0f, 6.0f, 1.0f, 1.0f), new Quaternion(1.0f, 6.0f, 1.0f, 1.0f));
     }
 
     [Test]
     public void AreEqual_ShouldThrowAssertionException_IfVector2DoNotMatch() {
         Assert.Throws(typeof(AssertionException), () => {
-            BBAssert.AreEqual(Vector2.zero, Vector2.one);
+            UnityAssert.AreEqual(Vector2.zero, Vector2.one);
         });
 
         Assert.Throws(typeof(AssertionException), () => { 
-            BBAssert.AreEqual(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 1.0f));
+            UnityAssert.AreEqual(new Vector2(5.0f, 5.0f), new Vector2(5.0f, 1.0f));
         });
     }
 
     [Test]
     public void AreEqual_ShouldThrowAssertionException_IfVector3DoNotMatch() {
         Assert.Throws(typeof(AssertionException), () => {
-            BBAssert.AreEqual(Vector3.zero, Vector3.one);
+            UnityAssert.AreEqual(Vector3.zero, Vector3.one);
         });
 
         Assert.Throws(typeof(AssertionException), () => { 
-            BBAssert.AreEqual(new Vector3(5.0f, 5.0f, 5.0f), new Vector3(5.0f, 1.0f, 5.0f));
+            UnityAssert.AreEqual(new Vector3(5.0f, 5.0f, 5.0f), new Vector3(5.0f, 1.0f, 5.0f));
         });
     }
 
     [Test]
     public void AreEqual_ShouldThrowAssertionException_IfQuaternionDoNotMatch() {
         Assert.Throws(typeof(AssertionException), () => {
-            BBAssert.AreEqual(Quaternion.identity, new Quaternion(0.0f, 1.0f, 0.0f, 1.0f));
+            UnityAssert.AreEqual(Quaternion.identity, new Quaternion(0.0f, 1.0f, 0.0f, 1.0f));
         });
 
         Assert.Throws(typeof(AssertionException), () => { 
-            BBAssert.AreEqual(Quaternion.identity, new Quaternion(1.0f, 6.0f, 1.0f, 6.0f));
+            UnityAssert.AreEqual(Quaternion.identity, new Quaternion(1.0f, 6.0f, 1.0f, 6.0f));
         });
     }
 
@@ -134,7 +134,7 @@ public class UnityAssertTests {
 
     [Test]
     public void IsTrue_ShouldPass_IfAllItemsReturnTrue() {
-        BBAssert.IsTrue(new int[] {
+        UnityAssert.IsTrue(new int[] {
             1, 2
         }, ReturnTrue);
     }
@@ -142,7 +142,7 @@ public class UnityAssertTests {
     [Test]
     public void IsTrue_ShouldThrowAssertionException_IfAllItemsReturnFalse() {
         Assert.Throws(typeof(AssertionException), () => {
-            BBAssert.IsTrue(new int[] {
+            UnityAssert.IsTrue(new int[] {
                 1, 2
             }, ReturnFalse);
         });
@@ -150,7 +150,7 @@ public class UnityAssertTests {
 
     [Test]
     public void IsFalse_ShouldPass_IfAllItemsReturnFalse() {
-        BBAssert.IsFalse(new int[] {
+        UnityAssert.IsFalse(new int[] {
             1, 2
         }, ReturnFalse);
     }
@@ -158,7 +158,7 @@ public class UnityAssertTests {
     [Test]
     public void IsFalse_ShouldThrowAssertionException_IfAllItemsReturnTrue() {
         Assert.Throws(typeof(AssertionException), () => {
-            BBAssert.IsFalse(new int[] {
+            UnityAssert.IsFalse(new int[] {
                 1, 2
             }, ReturnTrue);
         });
@@ -178,7 +178,7 @@ public class UnityAssertTests {
 
     [Test]
     public void AreEqual_ShouldPass_IfStringKeysAndValuesAreEqual() {
-        BBAssert.AreEqual(new Dictionary<int, string> {
+        UnityAssert.AreEqual(new Dictionary<int, string> {
             { 1, "1" },
             { 10, "10" }
         }, IntToString);
@@ -187,7 +187,7 @@ public class UnityAssertTests {
     [Test]
     public void AreEqual_ShouldThrowAssertionException_IfStringKeysAndValuesAreNotEqual() {
         Assert.Throws(typeof(AssertionException), () => {
-            BBAssert.AreEqual(new Dictionary<int, string> {
+            UnityAssert.AreEqual(new Dictionary<int, string> {
                 { 1, "10" }
             }, IntToString);
         });
@@ -195,7 +195,7 @@ public class UnityAssertTests {
 
     [Test]
     public void AreEqual_ShouldPass_IfIntKeysAndValuesAreEqual() {
-        BBAssert.AreEqual(new Dictionary<int, int> {
+        UnityAssert.AreEqual(new Dictionary<int, int> {
             { 1, 2 }
         }, PlusOne);
     }
@@ -203,7 +203,7 @@ public class UnityAssertTests {
     [Test]
     public void AreEqual_ShouldThrowAssertionException_IfIntKeysAndValuesAreNotEqual() {
         Assert.Throws(typeof(AssertionException), () => {
-                BBAssert.AreEqual(new Dictionary<int, int> {
+                UnityAssert.AreEqual(new Dictionary<int, int> {
                 { 1, 1 }
             }, PlusOne);
         });
