@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using UnityEngine;
 
+using BBUnity.TestSupport;
+
 public class FixturesTests {
 
     [Test]
