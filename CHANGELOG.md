@@ -57,7 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - IsCalled on BBAssert which allows you to count the number of times an action (or inner action) is called.
 
-## [0.2.3] - 2020-09-14
+## [0.2.3] - 2020-09-15
 ### Added
 
 - Fixtures
@@ -67,7 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Renamed all of the namespaces to make more sense. Only BBUnity.TestSupport needs to be imported
 
-## [0.2.4] - 2020-09-14
+## [0.2.4] - 2021-01-18
 ### Changed
 
 - Fixed namespace for FixturesTests
