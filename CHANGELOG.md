@@ -94,3 +94,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renamed the .meta files
 - Added a TODO.md file to track what needs completing
 - v1.0.0 release
+
+## [2.0.0] - 2021-01-22
+
+### Changed
+
+- Renamed ClearSceneObjects to DestroyRootObjectsInScene
+- Renamed NumberOfObjectsInScene to NumberOfRootObjectsInScene
+
+### Added
+
+- Param variations on the CreateThenDestroyGameObject, CreateThenDestroyGameObject, CreateGameObject

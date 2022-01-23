@@ -36,31 +36,31 @@ public class UnityAssertTests {
     }
 
     [Test]
-    public void ChangeInSceneObjects_ShouldPass_WhenChangeIsTheSame() {
-        UnityAssert.ChangeInSceneObjects(0, () => {
+    public void ChangeInSceneRootObjects_ShouldPass_WhenChangeIsTheSame() {
+        UnityAssert.ChangeInSceneRootObjects(0, () => {
 
         });
 
-        UnityAssert.ChangeInSceneObjects(1, () => {
+        UnityAssert.ChangeInSceneRootObjects(1, () => {
             new GameObject();
         });
 
         GameObject obj = new GameObject();
-        UnityAssert.ChangeInSceneObjects(-1, () => {
+        UnityAssert.ChangeInSceneRootObjects(-1, () => {
             GameObject.DestroyImmediate(obj);
         });
     }
 
     [Test]
-    public void ChangeInSceneObjects_ShouldThrowAssertionException_WhenChangeDoNotMatch() {
+    public void ChangeInSceneRootObjects_ShouldThrowAssertionException_WhenChangeDoNotMatch() {
         Assert.Throws(typeof(AssertionException), () => {
-            UnityAssert.ChangeInSceneObjects(1, () => {
+            UnityAssert.ChangeInSceneRootObjects(1, () => {
 
             });
         });
 
         Assert.Throws(typeof(AssertionException), () => {
-            UnityAssert.ChangeInSceneObjects(-1, () => {
+            UnityAssert.ChangeInSceneRootObjects(-1, () => {
 
             });
         });

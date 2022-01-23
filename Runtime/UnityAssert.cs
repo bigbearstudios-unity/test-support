@@ -6,13 +6,11 @@ using NUnit.Framework;
 
 namespace BBUnity.TestSupport {
     public static class UnityAssert {
-        public static void ChangeInSceneObjects(int assertedChange, Action func) {
-            int previousObjectCount = TestUtilities.NumberOfObjectsInScene;
+        public static void ChangeInSceneRootObjects(int assertedChange, Action func) {
+            int previousObjectCount = TestUtilities.NumberOfRootObjectsInScene;
             func();
-            int newObjectCount = TestUtilities.NumberOfObjectsInScene;
-            int change = newObjectCount - previousObjectCount;
-
-            Assert.AreEqual(assertedChange, change);
+            int newObjectCount = TestUtilities.NumberOfRootObjectsInScene;
+            Assert.AreEqual(assertedChange, newObjectCount - previousObjectCount);
         }
 
         /*
@@ -90,7 +88,6 @@ namespace BBUnity.TestSupport {
             Action toCall = () => {
                 callCount++;
             };
-
 
             action(toCall);
             Assert.AreEqual(called, callCount);
