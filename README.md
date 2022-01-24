@@ -101,9 +101,9 @@ TestUtilities.CreateThenDestroyGameObject(new Type[] { typeof(Rigidbody) }, (Gam
  * once the Action has been called. These versions take a Generic param which will be
  * the param of the Action.
  */
-Test.Utilities.CreateThenDestroyGameObject<RigidBody>((RigidBody obj) => {});
+TestUtilities.CreateThenDestroyGameObject<RigidBody>((RigidBody obj) => {});
 TestUtilities.CreateThenDestroyGameObject<RigidBody>(parentTransform, (RigidBody obj) => {});
-Test.Utilities.CreateThenDestroyGameObject<RigidBody>("Name of GameObject", (RigidBody obj) => {});
+TestUtilities.CreateThenDestroyGameObject<RigidBody>("Name of GameObject", (RigidBody obj) => {});
 TestUtilities.CreateThenDestroyGameObject<RigidBody>(new Type[] { typeof(Rigidbody) }, (RigidBody obj) => {});
 
 ```
