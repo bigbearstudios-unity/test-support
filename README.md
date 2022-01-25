@@ -1,6 +1,6 @@
 # BBUnity Test Support
 
-Test support library for Unity. The library has two exposed classes:
+Test support library for Unity. The library has three exposed classes:
 
 - Fixtures
 - TestUtilities
