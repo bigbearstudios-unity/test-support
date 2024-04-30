@@ -13,6 +13,7 @@ public class FixturesTests {
     [Test]
     public void Sprite_ShouldCreateASprite_WithGivenWidthAndHeight() {
         Sprite sprite = Fixtures.Sprite(25, 50);
+        
         Assert.NotNull(sprite);
         Assert.AreEqual(25, sprite.texture.width);
         Assert.AreEqual(50, sprite.texture.height);

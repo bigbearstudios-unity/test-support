@@ -17,22 +17,22 @@ namespace BBUnity.TestSupport {
          * Vector AreEqual
          */
 
-        public static void AreEqual(Vector2 v, Vector2 v2, float tolerance = 0.001f) {
+        public static void AreEqual(Vector2 v, Vector2 v2, float tolerance = float.Epsilon) {
             float distance = Vector2.Distance(v, v2);
             Assert.That(distance, Is.LessThanOrEqualTo(tolerance), AssertMessage(v, v2, distance, tolerance));
         }
 
-        public static void AreEqual(Vector3 v, Vector3 v2, float tolerance = 0.001f) {
+        public static void AreEqual(Vector3 v, Vector3 v2, float tolerance = float.Epsilon) {
             float distance = Vector2.Distance(v, v2);
             Assert.That(distance, Is.LessThanOrEqualTo(tolerance), AssertMessage(v, v2, distance, tolerance));
         }
 
-        public static void AreEqual(float f, float f2, float tolerance = 0.001f) {
+        public static void AreEqual(float f, float f2, float tolerance = float.Epsilon) {
             float absolute = Math.Abs(f - f2);
             Assert.That(absolute, Is.LessThanOrEqualTo(tolerance), AssertMessage(f, f2, absolute, tolerance));
         }
 
-        public static void AreEqual(Quaternion q, Quaternion q2, float tolerance = 0.001f) {
+        public static void AreEqual(Quaternion q, Quaternion q2, float tolerance = float.Epsilon) {
             float wDiff = Math.Abs(q.w - q2.w);
             float xDiff = Math.Abs(q.x - q2.x);
             float yDiff = Math.Abs(q.y - q2.y);
@@ -92,7 +92,6 @@ namespace BBUnity.TestSupport {
             action(toCall);
             Assert.AreEqual(called, callCount);
         }
-
 
         private static string AssertMessage(Vector3 v, Vector3 v2, float distance, float tolerance) {
             return String.Format("Expected: Vector3({0}, {1}, {2})\nBut was:  Vector3({3}, {4}, {5})\nDistance: {6} is greated than allowed delta {7}",

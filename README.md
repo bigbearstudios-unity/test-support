@@ -42,7 +42,7 @@ UnityAssert.ChangeInSceneRootObjects(1, () => {
 //Asserts that the number of Root Scene Objects changed by one, E.g. This would throw
 UnityAssert.ChangeInSceneRootObjects(1, () => {});
 
-//Asserts two vectors are equal using a tolerance of 0.001, or you can set your own tolerance
+//Asserts two vectors are equal using a tolerance of Double.Epsilon, or you can set your own tolerance
 UnityAssert.AreEqual(Vector2.zero, Vector2.zer0);
 UnityAssert.AreEqual(Vector2.zero, Vector2.zer0, 0.1f);
 
