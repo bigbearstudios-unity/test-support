@@ -85,7 +85,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Complete CHANGELOG :)
+- Complete CHANGELOG
 
 ## [1.0.0] - 2021-01-21
 
@@ -105,3 +105,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Param variations on the CreateThenDestroyGameObject, CreateThenDestroyGameObject, CreateGameObject
+
+## [2.1.0] - 2024-11-18
+
+### Changed
+
+- Removed namespace for the tests
+- Replaced 0.001f with float.Epsilon

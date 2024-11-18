@@ -1,6 +1,6 @@
 {
   "name": "com.bigbearstudios.bbunity-test-support",
-  "version": "1.2.0",
+  "version": "2.1.0",
   "displayName": "BBUnity Test Support",
   "description": "Test support for the Big Bear Unity project - Requires Unity / C# to use",
   "unity": "2018.3",
