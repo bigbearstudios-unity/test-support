@@ -1,14 +1,14 @@
 {
   "name": "com.bigbearstudios.bbunity-test-support",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "displayName": "BBUnity Test Support",
   "description": "Test support for the Big Bear Unity project - Requires Unity / C# to use",
   "unity": "2018.3",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/big-bear-studios-open-source/bbunitytestsupport.git"
+    "url": "https://github.com/bigbearstudios-unity/test-support.git"
   },
-  "bugs": "https://gitlab.com/big-bear-studios-open-source/bbunitytestsupport/-/issues",
+  "bugs": "https://github.com/bigbearstudios-unity/test-support/issues",
   "author": {
     "name": "Big Bear Studios",
     "email": "development@bigbearstudios.co.uk",
